@@ -1,0 +1,54 @@
+[
+  {
+    "name": "LedgerlineInfraErrors",
+    "service": "ledgerline",
+    "kind": "counter_increase",
+    "metric": "ledgerline_errors_total",
+    "exclude": {
+      "kind": [
+        "business"
+      ]
+    },
+    "threshold": 5,
+    "window_seconds": 20,
+    "for_seconds": 6,
+    "resolve_seconds": 15,
+    "severity": "page",
+    "summary": "Ledgerline is failing requests for infrastructure reasons"
+  },
+  {
+    "name": "LedgerlineDown",
+    "service": "ledgerline",
+    "kind": "gauge_threshold",
+    "metric": "scrape_failed",
+    "threshold": 1,
+    "for_seconds": 8,
+    "resolve_seconds": 10,
+    "severity": "page",
+    "summary": "Ledgerline stopped answering metrics scrapes (down or hung)"
+  },
+  {
+    "name": "LedgerlineHeapPressure",
+    "service": "ledgerline",
+    "kind": "gauge_ratio",
+    "metric": "jvm_heap_used_bytes",
+    "denominator": "jvm_heap_max_bytes",
+    "threshold": 0.85,
+    "for_seconds": 10,
+    "resolve_seconds": 15,
+    "severity": "page",
+    "summary": "Ledgerline JVM heap above 85% of max"
+  },
+  {
+    "name": "LedgerlinePoolSaturated",
+    "service": "ledgerline",
+    "kind": "gauge_ratio",
+    "metric": "ledgerline_pool_active",
+    "denominator": "ledgerline_pool_max",
+    "threshold": 1.0,
+    "for_seconds": 10,
+    "resolve_seconds": 15,
+    "severity": "ticket",
+    "summary": "Ledgerline connection pool fully borrowed"
+  }
+]

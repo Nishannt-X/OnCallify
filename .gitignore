@@ -1,0 +1,20 @@
+# runtime state (config repo, vault, logs, pids)
+.run/
+# build output
+ledgerline/target/
+gateway/dist/
+web/dist/
+node_modules/
+# python
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+# experiment answer cache (LLM responses); reports themselves are committed
+eval/reports/.cache/
+# editors / OS
+.DS_Store
+.idea/
+.vscode/
