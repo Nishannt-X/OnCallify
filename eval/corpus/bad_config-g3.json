@@ -1,0 +1,78 @@
+{
+ "captured_at": "2026-10-19T22:30:00.000000Z",
+ "evidence": {
+  "alerts": [
+   {
+    "ends_at": null,
+    "fingerprint": "fp-cfg-3",
+    "labels": {},
+    "rule": "LedgerlineInfraErrors",
+    "service": "ledgerline",
+    "severity": "page",
+    "starts_at": "2026-10-20T00:00:50.000000Z",
+    "status": "firing",
+    "summary": "LedgerlineInfraErrors",
+    "value": 0.0
+   }
+  ],
+  "changes": [
+   {
+    "author": "dev-kabir",
+    "id": "badurl00000301",
+    "keys": {
+     "fx.url": [
+      "http://ok/fx",
+      "http://127.0.0.1:8089/ledgerline/fx/rate"
+     ]
+    },
+    "parent": "000000000000",
+    "source": "config",
+    "summary": "change",
+    "ts": "2026-10-20T00:00:40.000000Z"
+   }
+  ],
+  "logs": {
+   "by_error_kind": {
+    "fx_unavailable": 910
+   },
+   "by_level": {
+    "ERROR": 910
+   },
+   "recent_error_kinds": {
+    "fx_unavailable": 910
+   },
+   "templates": [
+    {
+     "count": 1,
+     "error_kind": null,
+     "exemplar": "request failed: FxException: fx connection refused or 404 at http://127.0.0.1:8089/ledgerline/fx/rate",
+     "first_ts": "2026-10-20T00:00:00.000000Z",
+     "last_ts": "2026-10-20T00:01:00.000000Z",
+     "level": "ERROR",
+     "template": "request failed: FxException: fx connection refused or 404 at http://127.0.0.1:8089/ledgerline/fx/rate"
+    }
+   ],
+   "total_lines": 910
+  },
+  "metrics": {},
+  "service": "ledgerline",
+  "window_end": "2026-10-20T00:01:00.000000Z",
+  "window_start": "2026-10-20T00:00:00.000000Z"
+ },
+ "family": "bad_config",
+ "group": "g3",
+ "knobs": {
+  "fx.url": "http://127.0.0.1:8089/ledgerline/fx/rate",
+  "herring": "none",
+  "workers": 14
+ },
+ "load": {
+  "200": 1200,
+  "500": 50
+ },
+ "scenario_id": "bad_config-g3",
+ "truth": {
+  "cause": "bad_config",
+  "suspect_change": "badurl00000301"
+ }
+}

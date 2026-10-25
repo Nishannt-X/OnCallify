@@ -1,0 +1,245 @@
+{
+ "captured_at": "2026-10-19T22:30:00.000000Z",
+ "evidence": {
+  "alerts": [
+   {
+    "ends_at": null,
+    "fingerprint": "fp-fx-7",
+    "labels": {},
+    "rule": "LedgerlineInfraErrors",
+    "service": "ledgerline",
+    "severity": "page",
+    "starts_at": "2026-10-20T00:00:50.000000Z",
+    "status": "firing",
+    "summary": "LedgerlineInfraErrors",
+    "value": 0.0
+   }
+  ],
+  "changes": [
+   {
+    "author": "dev-kabir",
+    "id": "herring00000701",
+    "keys": {
+     "feature.audit.verbose": [
+      null,
+      "true"
+     ]
+    },
+    "parent": "000000000000",
+    "source": "config",
+    "summary": "change",
+    "ts": "2026-10-20T00:00:40.000000Z"
+   }
+  ],
+  "logs": {
+   "by_error_kind": {
+    "fx_timeout": 350,
+    "pool_exhausted": 125
+   },
+   "by_level": {
+    "ERROR": 475
+   },
+   "recent_error_kinds": {
+    "fx_timeout": 350,
+    "pool_exhausted": 125
+   },
+   "templates": [
+    {
+     "count": 1,
+     "error_kind": null,
+     "exemplar": "request failed: FxException: fx request timed out after 1000 ms",
+     "first_ts": "2026-10-20T00:00:00.000000Z",
+     "last_ts": "2026-10-20T00:01:00.000000Z",
+     "level": "ERROR",
+     "template": "request failed: FxException: fx request timed out after 1000 ms"
+    }
+   ],
+   "total_lines": 475
+  },
+  "metrics": {
+   "ledgerline_pool_active": [
+    [
+     0.0,
+     9.0
+    ],
+    [
+     1.0,
+     9.0
+    ],
+    [
+     2.0,
+     9.0
+    ],
+    [
+     3.0,
+     9.0
+    ],
+    [
+     4.0,
+     9.0
+    ],
+    [
+     5.0,
+     9.0
+    ],
+    [
+     6.0,
+     9.0
+    ],
+    [
+     7.0,
+     9.0
+    ],
+    [
+     8.0,
+     9.0
+    ],
+    [
+     9.0,
+     9.0
+    ],
+    [
+     10.0,
+     9.0
+    ],
+    [
+     11.0,
+     9.0
+    ],
+    [
+     12.0,
+     9.0
+    ],
+    [
+     13.0,
+     9.0
+    ],
+    [
+     14.0,
+     9.0
+    ],
+    [
+     15.0,
+     9.0
+    ],
+    [
+     16.0,
+     9.0
+    ],
+    [
+     17.0,
+     9.0
+    ],
+    [
+     18.0,
+     9.0
+    ],
+    [
+     19.0,
+     9.0
+    ]
+   ],
+   "transfer_latency_mean_s": [
+    [
+     0.0,
+     0.04
+    ],
+    [
+     1.0,
+     0.04
+    ],
+    [
+     2.0,
+     0.04
+    ],
+    [
+     3.0,
+     0.04
+    ],
+    [
+     4.0,
+     0.04
+    ],
+    [
+     5.0,
+     3.0
+    ],
+    [
+     6.0,
+     3.0
+    ],
+    [
+     7.0,
+     3.0
+    ],
+    [
+     8.0,
+     3.0
+    ],
+    [
+     9.0,
+     3.0
+    ],
+    [
+     10.0,
+     3.0
+    ],
+    [
+     11.0,
+     3.0
+    ],
+    [
+     12.0,
+     3.0
+    ],
+    [
+     13.0,
+     3.0
+    ],
+    [
+     14.0,
+     3.0
+    ],
+    [
+     15.0,
+     3.0
+    ],
+    [
+     16.0,
+     3.0
+    ],
+    [
+     17.0,
+     3.0
+    ],
+    [
+     18.0,
+     3.0
+    ],
+    [
+     19.0,
+     3.0
+    ]
+   ]
+  },
+  "service": "ledgerline",
+  "window_end": "2026-10-20T00:01:00.000000Z",
+  "window_start": "2026-10-20T00:00:00.000000Z"
+ },
+ "family": "fx_degraded",
+ "group": "g7",
+ "knobs": {
+  "fx_delay_ms": 3000,
+  "herring": "config",
+  "workers": 14
+ },
+ "load": {
+  "200": 1200,
+  "500": 50
+ },
+ "scenario_id": "fx_degraded-g7",
+ "truth": {
+  "cause": "fx_degraded",
+  "suspect_change": null
+ }
+}

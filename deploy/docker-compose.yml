@@ -1,19 +1,15 @@
-# Optional: the same stack in containers, for machines with Docker.
-# The primary, tested path is deploy/local (no Docker needed). Build the WAR and the
-# gateway first (`make build`), then: docker compose -f deploy/docker-compose.yml up
-#
-# Note: this file is provided for convenience and was not exercised in the original
-# build environment (no Docker daemon there). The CI integration job covers the same
-# topology on a plain Ubuntu runner.
 services:
   postgres:
     image: postgres:16
     environment:
       POSTGRES_PASSWORD: postgres
     ports: ["5432:5432"]
+    volumes:
+      - ./init-postgres.sql:/docker-entrypoint-initdb.d/init.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
+      interval: 3s
+      timeout: 5s
       retries: 20
 
   mongo:
@@ -22,6 +18,7 @@ services:
 
   tomcat:
     image: tomcat:10.1-jdk21
+    entrypoint: ["bash", "-c", "cp -r /usr/local/tomcat/webapps.dist/manager /usr/local/tomcat/webapps/manager && echo '<Context privileged=\"true\"/>' > /usr/local/tomcat/webapps/manager/META-INF/context.xml && catalina.sh run"]
     depends_on:
       postgres: { condition: service_healthy }
     environment:
@@ -30,6 +27,7 @@ services:
     volumes:
       - ../ledgerline/target/ledgerline.war:/usr/local/tomcat/webapps/ledgerline.war:ro
       - ../.run/ledgerline:/ledgerline
+      - ../.run/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:ro
     ports: ["8080:8080"]
 
   gateway:
@@ -40,7 +38,8 @@ services:
       GATEWAY_PORT: "7070"
       MONGO_URL: mongodb://mongo:27017
       AGENT_URL: http://host.docker.internal:7080
-      ONCALLIFY_INGEST_TOKEN: ${ONCALLIFY_INGEST_TOKEN:?set ONCALLIFY_INGEST_TOKEN}
+      ONCALLIFY_INGEST_TOKEN: ${ONCALLIFY_INGEST_TOKEN:-oncallify-ingest-token}
+      GATEWAY_RULES: /app/rules.json
     volumes:
       - ../gateway:/app:ro
     ports: ["7070:7070"]

@@ -52,7 +52,10 @@ json_obj() { # json_obj key value [key value ...]: flat object of string values
 
 # result <exit_code> <ok> <changed> <detail> [before_json] [after_json]
 result() {
-  local code="$1" ok="$2" changed="$3" detail="$4" before="${5:-{\}}" after="${6:-{\}}"
+  local code="$1" ok="$2" changed="$3" detail="$4"
+  local before="{}" after="{}"
+  [[ -n "${5:-}" ]] && before="$5"
+  [[ -n "${6:-}" ]] && after="$6"
   printf '{"ok":%s,"action":%s,"dry_run":%s,"changed":%s,"detail":%s,"before":%s,"after":%s}\n' \
     "$ok" "$(json_str "$RB_ACTION")" "$RB_DRY_RUN" "$changed" "$(json_str "$detail")" "$before" "$after"
   exit "$code"

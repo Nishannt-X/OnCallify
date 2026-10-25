@@ -16,11 +16,16 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from oncallify import actions
+from oncallify import actions, copilot
 from oncallify.approvals import ApprovalError
 from oncallify.diagnose import available_variants
 from oncallify.model import Alert, to_dict
 from oncallify.pipeline import Pipeline
+
+
+class ChatBody(BaseModel):
+    message: str = Field(min_length=1, max_length=2000)
+    incident_id: str | None = None
 
 
 class ApproveBody(BaseModel):
@@ -76,6 +81,10 @@ def create_app(pipeline: Pipeline, *, web_dist: Path | None = None) -> FastAPI:
         except (KeyError, ValueError, TypeError) as e:
             raise HTTPException(400, f"bad alert: {e}") from e
         return {"incident_id": pipeline.on_alert(alert)}
+
+    @app.post("/api/chat")
+    def chat_endpoint(body: ChatBody) -> dict[str, Any]:
+        return copilot.chat(pipeline, body.message, body.incident_id)
 
     @app.get("/api/incidents")
     def incidents(limit: int = 100) -> dict[str, Any]:

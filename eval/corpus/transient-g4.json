@@ -1,0 +1,76 @@
+{
+ "captured_at": "2026-10-19T22:30:00.000000Z",
+ "evidence": {
+  "alerts": [
+   {
+    "ends_at": null,
+    "fingerprint": "fp-trn-4",
+    "labels": {},
+    "rule": "LedgerlineInfraErrors",
+    "service": "ledgerline",
+    "severity": "page",
+    "starts_at": "2026-10-20T00:00:50.000000Z",
+    "status": "resolved",
+    "summary": "LedgerlineInfraErrors",
+    "value": 0.0
+   }
+  ],
+  "changes": [
+   {
+    "author": "dev-asha",
+    "id": "herring00000401",
+    "keys": {
+     "fx.timeout.ms": [
+      null,
+      "1100"
+     ]
+    },
+    "parent": "000000000000",
+    "source": "config",
+    "summary": "change",
+    "ts": "2026-10-20T00:00:40.000000Z"
+   }
+  ],
+  "logs": {
+   "by_error_kind": {
+    "fx_unavailable": 47
+   },
+   "by_level": {
+    "ERROR": 47
+   },
+   "recent_error_kinds": {},
+   "templates": [
+    {
+     "count": 1,
+     "error_kind": null,
+     "exemplar": "request failed: FxException: fx provider returned 503 Service Unavailable",
+     "first_ts": "2026-10-20T00:00:00.000000Z",
+     "last_ts": "2026-10-20T00:01:00.000000Z",
+     "level": "ERROR",
+     "template": "request failed: FxException: fx provider returned 503 Service Unavailable"
+    }
+   ],
+   "total_lines": 47
+  },
+  "metrics": {},
+  "service": "ledgerline",
+  "window_end": "2026-10-20T00:01:00.000000Z",
+  "window_start": "2026-10-20T00:00:00.000000Z"
+ },
+ "family": "transient",
+ "group": "g4",
+ "knobs": {
+  "blip_s": 10,
+  "herring": "config",
+  "workers": 8
+ },
+ "load": {
+  "200": 1200,
+  "500": 50
+ },
+ "scenario_id": "transient-g4",
+ "truth": {
+  "cause": "transient",
+  "suspect_change": null
+ }
+}

@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "oncallify"
 version = "1.0.0"
 description = "On-call assistant: diagnoses incidents, proposes one allowlisted fix, waits for approval, verifies recovery, and measures itself with A/B experiments"
-readme = "../README.md"
+readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 dependencies = [

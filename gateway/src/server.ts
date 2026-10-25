@@ -58,7 +58,8 @@ async function main(): Promise<void> {
     ingestToken,
     log,
   });
-  const server = app.listen(port, '127.0.0.1', () => log('gateway listening', { port, rules: rules.length }));
+  const host = process.env.GATEWAY_HOST ?? '0.0.0.0';
+  const server = app.listen(port, host, () => log('gateway listening', { port, host, rules: rules.length }));
   const shutdown = (): void => {
     server.close(() => {
       store.close().finally(() => process.exit(0));

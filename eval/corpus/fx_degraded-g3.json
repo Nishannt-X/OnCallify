@@ -1,0 +1,230 @@
+{
+ "captured_at": "2026-10-19T22:30:00.000000Z",
+ "evidence": {
+  "alerts": [
+   {
+    "ends_at": null,
+    "fingerprint": "fp-fx-3",
+    "labels": {},
+    "rule": "LedgerlineInfraErrors",
+    "service": "ledgerline",
+    "severity": "page",
+    "starts_at": "2026-10-20T00:00:50.000000Z",
+    "status": "firing",
+    "summary": "LedgerlineInfraErrors",
+    "value": 0.0
+   }
+  ],
+  "changes": [],
+  "logs": {
+   "by_error_kind": {
+    "fx_timeout": 310,
+    "pool_exhausted": 105
+   },
+   "by_level": {
+    "ERROR": 415
+   },
+   "recent_error_kinds": {
+    "fx_timeout": 310,
+    "pool_exhausted": 105
+   },
+   "templates": [
+    {
+     "count": 1,
+     "error_kind": null,
+     "exemplar": "request failed: FxException: fx request timed out after 1000 ms",
+     "first_ts": "2026-10-20T00:00:00.000000Z",
+     "last_ts": "2026-10-20T00:01:00.000000Z",
+     "level": "ERROR",
+     "template": "request failed: FxException: fx request timed out after 1000 ms"
+    }
+   ],
+   "total_lines": 415
+  },
+  "metrics": {
+   "ledgerline_pool_active": [
+    [
+     0.0,
+     8.0
+    ],
+    [
+     1.0,
+     8.0
+    ],
+    [
+     2.0,
+     8.0
+    ],
+    [
+     3.0,
+     8.0
+    ],
+    [
+     4.0,
+     8.0
+    ],
+    [
+     5.0,
+     8.0
+    ],
+    [
+     6.0,
+     8.0
+    ],
+    [
+     7.0,
+     8.0
+    ],
+    [
+     8.0,
+     8.0
+    ],
+    [
+     9.0,
+     8.0
+    ],
+    [
+     10.0,
+     8.0
+    ],
+    [
+     11.0,
+     8.0
+    ],
+    [
+     12.0,
+     8.0
+    ],
+    [
+     13.0,
+     8.0
+    ],
+    [
+     14.0,
+     8.0
+    ],
+    [
+     15.0,
+     8.0
+    ],
+    [
+     16.0,
+     8.0
+    ],
+    [
+     17.0,
+     8.0
+    ],
+    [
+     18.0,
+     8.0
+    ],
+    [
+     19.0,
+     8.0
+    ]
+   ],
+   "transfer_latency_mean_s": [
+    [
+     0.0,
+     0.04
+    ],
+    [
+     1.0,
+     0.04
+    ],
+    [
+     2.0,
+     0.04
+    ],
+    [
+     3.0,
+     0.04
+    ],
+    [
+     4.0,
+     0.04
+    ],
+    [
+     5.0,
+     1.5
+    ],
+    [
+     6.0,
+     1.5
+    ],
+    [
+     7.0,
+     1.5
+    ],
+    [
+     8.0,
+     1.5
+    ],
+    [
+     9.0,
+     1.5
+    ],
+    [
+     10.0,
+     1.5
+    ],
+    [
+     11.0,
+     1.5
+    ],
+    [
+     12.0,
+     1.5
+    ],
+    [
+     13.0,
+     1.5
+    ],
+    [
+     14.0,
+     1.5
+    ],
+    [
+     15.0,
+     1.5
+    ],
+    [
+     16.0,
+     1.5
+    ],
+    [
+     17.0,
+     1.5
+    ],
+    [
+     18.0,
+     1.5
+    ],
+    [
+     19.0,
+     1.5
+    ]
+   ]
+  },
+  "service": "ledgerline",
+  "window_end": "2026-10-20T00:01:00.000000Z",
+  "window_start": "2026-10-20T00:00:00.000000Z"
+ },
+ "family": "fx_degraded",
+ "group": "g3",
+ "knobs": {
+  "fx_delay_ms": 1500,
+  "herring": "none",
+  "workers": 14
+ },
+ "load": {
+  "200": 1200,
+  "500": 50
+ },
+ "scenario_id": "fx_degraded-g3",
+ "truth": {
+  "cause": "fx_degraded",
+  "suspect_change": null
+ }
+}

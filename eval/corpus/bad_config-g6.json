@@ -1,0 +1,92 @@
+{
+ "captured_at": "2026-10-19T22:30:00.000000Z",
+ "evidence": {
+  "alerts": [
+   {
+    "ends_at": null,
+    "fingerprint": "fp-cfg-6",
+    "labels": {},
+    "rule": "LedgerlineInfraErrors",
+    "service": "ledgerline",
+    "severity": "page",
+    "starts_at": "2026-10-20T00:00:50.000000Z",
+    "status": "firing",
+    "summary": "LedgerlineInfraErrors",
+    "value": 0.0
+   }
+  ],
+  "changes": [
+   {
+    "author": "dev-meera",
+    "id": "badurl00000601",
+    "keys": {
+     "fx.url": [
+      "http://ok/fx",
+      "http://127.0.0.1:8089/ledgerline/fx/rate"
+     ]
+    },
+    "parent": "000000000000",
+    "source": "config",
+    "summary": "change",
+    "ts": "2026-10-20T00:00:40.000000Z"
+   },
+   {
+    "author": "vault-rotation-job",
+    "id": "vault-1",
+    "keys": {
+     "secret": [
+      null,
+      "reporting-api-key"
+     ]
+    },
+    "parent": null,
+    "source": "vault",
+    "summary": "rotated secret reporting-api-key",
+    "ts": "2026-10-20T00:00:41.000000Z"
+   }
+  ],
+  "logs": {
+   "by_error_kind": {
+    "fx_unavailable": 970
+   },
+   "by_level": {
+    "ERROR": 970
+   },
+   "recent_error_kinds": {
+    "fx_unavailable": 970
+   },
+   "templates": [
+    {
+     "count": 1,
+     "error_kind": null,
+     "exemplar": "request failed: FxException: fx connection refused or 404 at http://127.0.0.1:8089/ledgerline/fx/rate",
+     "first_ts": "2026-10-20T00:00:00.000000Z",
+     "last_ts": "2026-10-20T00:01:00.000000Z",
+     "level": "ERROR",
+     "template": "request failed: FxException: fx connection refused or 404 at http://127.0.0.1:8089/ledgerline/fx/rate"
+    }
+   ],
+   "total_lines": 970
+  },
+  "metrics": {},
+  "service": "ledgerline",
+  "window_end": "2026-10-20T00:01:00.000000Z",
+  "window_start": "2026-10-20T00:00:00.000000Z"
+ },
+ "family": "bad_config",
+ "group": "g6",
+ "knobs": {
+  "fx.url": "http://127.0.0.1:8089/ledgerline/fx/rate",
+  "herring": "vault",
+  "workers": 12
+ },
+ "load": {
+  "200": 1200,
+  "500": 50
+ },
+ "scenario_id": "bad_config-g6",
+ "truth": {
+  "cause": "bad_config",
+  "suspect_change": "badurl00000601"
+ }
+}

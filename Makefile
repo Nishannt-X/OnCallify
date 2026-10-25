@@ -21,7 +21,7 @@ build: ## build the WAR, the gateway and the dashboard
 	cd web && npm run build
 
 test: ## every test suite: JUnit, Jest, pytest, bats, Vitest
-	ledgerline/build.sh
+	ledgerline/build.sh || (cd ledgerline && mvn -B -ntp -q test)
 	cd gateway && npm test
 	cd agent && $(PY) -m pytest -q
 	bats runbooks/tests/runbooks.bats

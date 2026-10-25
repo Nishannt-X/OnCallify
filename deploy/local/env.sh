@@ -6,11 +6,31 @@ ONCALLIFY_ROOT="${ONCALLIFY_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." &&
 ONCALLIFY_RUN="${ONCALLIFY_RUN:-$ONCALLIFY_ROOT/.run}"
 
 # Tomcat: CATALINA_HOME is the install, CATALINA_BASE is our private instance.
-CATALINA_HOME="${CATALINA_HOME:-/usr/share/tomcat10}"
+if [[ -z "${CATALINA_HOME:-}" ]]; then
+  if [[ -d "/usr/share/tomcat10" ]]; then
+    CATALINA_HOME="/usr/share/tomcat10"
+  elif command -v brew >/dev/null 2>&1 && brew --prefix tomcat@10 >/dev/null 2>&1 && [[ -d "$(brew --prefix tomcat@10 2>/dev/null)/libexec" ]]; then
+    CATALINA_HOME="$(brew --prefix tomcat@10)/libexec"
+  elif command -v brew >/dev/null 2>&1 && brew --prefix tomcat >/dev/null 2>&1 && [[ -d "$(brew --prefix tomcat 2>/dev/null)/libexec" ]]; then
+    CATALINA_HOME="$(brew --prefix tomcat)/libexec"
+  else
+    CATALINA_HOME="/usr/share/tomcat10"
+  fi
+fi
+
 CATALINA_BASE="${CATALINA_BASE:-$ONCALLIFY_RUN/tomcat}"
 TOMCAT_PORT="${TOMCAT_PORT:-8080}"
 TOMCAT_SHUTDOWN_PORT="${TOMCAT_SHUTDOWN_PORT:-8005}"
-TOMCAT_MANAGER_APPS="${TOMCAT_MANAGER_APPS:-/usr/share/tomcat10-admin/manager}"
+
+if [[ -z "${TOMCAT_MANAGER_APPS:-}" ]]; then
+  if [[ -d "/usr/share/tomcat10-admin/manager" ]]; then
+    TOMCAT_MANAGER_APPS="/usr/share/tomcat10-admin/manager"
+  elif [[ -d "$CATALINA_HOME/webapps/manager" ]]; then
+    TOMCAT_MANAGER_APPS="$CATALINA_HOME/webapps/manager"
+  else
+    TOMCAT_MANAGER_APPS="/usr/share/tomcat10-admin/manager"
+  fi
+fi
 
 # Ledgerline's config is a git repository: every change is a commit (the change ledger).
 LEDGERLINE_HOME="${LEDGERLINE_HOME:-$ONCALLIFY_RUN/ledgerline}"

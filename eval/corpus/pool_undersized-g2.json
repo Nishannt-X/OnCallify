@@ -1,0 +1,344 @@
+{
+ "captured_at": "2026-10-19T22:30:00.000000Z",
+ "evidence": {
+  "alerts": [
+   {
+    "ends_at": null,
+    "fingerprint": "fp-pool-2",
+    "labels": {},
+    "rule": "LedgerlineInfraErrors",
+    "service": "ledgerline",
+    "severity": "page",
+    "starts_at": "2026-10-20T00:00:50.000000Z",
+    "status": "firing",
+    "summary": "LedgerlineInfraErrors",
+    "value": 0.0
+   }
+  ],
+  "changes": [
+   {
+    "author": "dev-meera",
+    "id": "shrink00000201",
+    "keys": {
+     "pool.max": [
+      "10",
+      "2"
+     ],
+     "pool.max.wait.ms": [
+      "500",
+      "50"
+     ]
+    },
+    "parent": "000000000000",
+    "source": "config",
+    "summary": "change",
+    "ts": "2026-10-20T00:00:40.000000Z"
+   },
+   {
+    "author": "vault-rotation-job",
+    "id": "vault-1",
+    "keys": {
+     "secret": [
+      null,
+      "reporting-api-key"
+     ]
+    },
+    "parent": null,
+    "source": "vault",
+    "summary": "rotated secret reporting-api-key",
+    "ts": "2026-10-20T00:00:41.000000Z"
+   }
+  ],
+  "logs": {
+   "by_error_kind": {
+    "pool_exhausted": 148
+   },
+   "by_level": {
+    "ERROR": 148
+   },
+   "recent_error_kinds": {
+    "pool_exhausted": 148
+   },
+   "templates": [
+    {
+     "count": 1,
+     "error_kind": null,
+     "exemplar": "request failed: DataAccessException: could not get a connection <- PoolExhaustedException: Timeout: Pool empty",
+     "first_ts": "2026-10-20T00:00:00.000000Z",
+     "last_ts": "2026-10-20T00:01:00.000000Z",
+     "level": "ERROR",
+     "template": "request failed: DataAccessException: could not get a connection <- PoolExhaustedException: Timeout: Pool empty"
+    }
+   ],
+   "total_lines": 148
+  },
+  "metrics": {
+   "ledgerline_pool_active": [
+    [
+     0.0,
+     2.0
+    ],
+    [
+     1.0,
+     2.0
+    ],
+    [
+     2.0,
+     2.0
+    ],
+    [
+     3.0,
+     2.0
+    ],
+    [
+     4.0,
+     2.0
+    ],
+    [
+     5.0,
+     2.0
+    ],
+    [
+     6.0,
+     2.0
+    ],
+    [
+     7.0,
+     2.0
+    ],
+    [
+     8.0,
+     2.0
+    ],
+    [
+     9.0,
+     2.0
+    ],
+    [
+     10.0,
+     2.0
+    ],
+    [
+     11.0,
+     2.0
+    ],
+    [
+     12.0,
+     2.0
+    ],
+    [
+     13.0,
+     2.0
+    ],
+    [
+     14.0,
+     2.0
+    ],
+    [
+     15.0,
+     2.0
+    ],
+    [
+     16.0,
+     2.0
+    ],
+    [
+     17.0,
+     2.0
+    ],
+    [
+     18.0,
+     2.0
+    ],
+    [
+     19.0,
+     2.0
+    ]
+   ],
+   "ledgerline_pool_max": [
+    [
+     0.0,
+     10.0
+    ],
+    [
+     1.0,
+     10.0
+    ],
+    [
+     2.0,
+     10.0
+    ],
+    [
+     3.0,
+     10.0
+    ],
+    [
+     4.0,
+     10.0
+    ],
+    [
+     5.0,
+     2.0
+    ],
+    [
+     6.0,
+     2.0
+    ],
+    [
+     7.0,
+     2.0
+    ],
+    [
+     8.0,
+     2.0
+    ],
+    [
+     9.0,
+     2.0
+    ],
+    [
+     10.0,
+     2.0
+    ],
+    [
+     11.0,
+     2.0
+    ],
+    [
+     12.0,
+     2.0
+    ],
+    [
+     13.0,
+     2.0
+    ],
+    [
+     14.0,
+     2.0
+    ],
+    [
+     15.0,
+     2.0
+    ],
+    [
+     16.0,
+     2.0
+    ],
+    [
+     17.0,
+     2.0
+    ],
+    [
+     18.0,
+     2.0
+    ],
+    [
+     19.0,
+     2.0
+    ]
+   ],
+   "tomcat_threads_busy": [
+    [
+     0.0,
+     11.0
+    ],
+    [
+     1.0,
+     11.0
+    ],
+    [
+     2.0,
+     11.0
+    ],
+    [
+     3.0,
+     11.0
+    ],
+    [
+     4.0,
+     11.0
+    ],
+    [
+     5.0,
+     11.0
+    ],
+    [
+     6.0,
+     11.0
+    ],
+    [
+     7.0,
+     11.0
+    ],
+    [
+     8.0,
+     11.0
+    ],
+    [
+     9.0,
+     11.0
+    ],
+    [
+     10.0,
+     11.0
+    ],
+    [
+     11.0,
+     11.0
+    ],
+    [
+     12.0,
+     11.0
+    ],
+    [
+     13.0,
+     11.0
+    ],
+    [
+     14.0,
+     11.0
+    ],
+    [
+     15.0,
+     11.0
+    ],
+    [
+     16.0,
+     11.0
+    ],
+    [
+     17.0,
+     11.0
+    ],
+    [
+     18.0,
+     11.0
+    ],
+    [
+     19.0,
+     11.0
+    ]
+   ]
+  },
+  "service": "ledgerline",
+  "window_end": "2026-10-20T00:01:00.000000Z",
+  "window_start": "2026-10-20T00:00:00.000000Z"
+ },
+ "family": "pool_undersized",
+ "group": "g2",
+ "knobs": {
+  "herring": "vault",
+  "pool.max": "2",
+  "pool.max.wait.ms": "50",
+  "workers": 12
+ },
+ "load": {
+  "200": 1200,
+  "500": 50
+ },
+ "scenario_id": "pool_undersized-g2",
+ "truth": {
+  "cause": "pool_undersized",
+  "suspect_change": "shrink00000201"
+ }
+}

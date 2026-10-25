@@ -1,0 +1,242 @@
+{
+ "captured_at": "2026-10-19T22:30:00.000000Z",
+ "evidence": {
+  "alerts": [
+   {
+    "ends_at": null,
+    "fingerprint": "fp-mem-2",
+    "labels": {},
+    "rule": "LedgerlineHeapPressure",
+    "service": "ledgerline",
+    "severity": "page",
+    "starts_at": "2026-10-20T00:00:50.000000Z",
+    "status": "firing",
+    "summary": "LedgerlineHeapPressure",
+    "value": 0.0
+   }
+  ],
+  "changes": [
+   {
+    "author": "vault-rotation-job",
+    "id": "vault-1",
+    "keys": {
+     "secret": [
+      null,
+      "reporting-api-key"
+     ]
+    },
+    "parent": null,
+    "source": "vault",
+    "summary": "rotated secret reporting-api-key",
+    "ts": "2026-10-20T00:00:41.000000Z"
+   }
+  ],
+  "logs": {
+   "by_error_kind": {
+    "out_of_memory": 4
+   },
+   "by_level": {
+    "ERROR": 4
+   },
+   "recent_error_kinds": {
+    "out_of_memory": 4
+   },
+   "templates": [
+    {
+     "count": 1,
+     "error_kind": null,
+     "exemplar": "request failed: OutOfMemoryError: Java heap space",
+     "first_ts": "2026-10-20T00:00:00.000000Z",
+     "last_ts": "2026-10-20T00:01:00.000000Z",
+     "level": "ERROR",
+     "template": "request failed: OutOfMemoryError: Java heap space"
+    }
+   ],
+   "total_lines": 4
+  },
+  "metrics": {
+   "jvm_heap_max_bytes": [
+    [
+     0.0,
+     384000000.0
+    ],
+    [
+     1.0,
+     384000000.0
+    ],
+    [
+     2.0,
+     384000000.0
+    ],
+    [
+     3.0,
+     384000000.0
+    ],
+    [
+     4.0,
+     384000000.0
+    ],
+    [
+     5.0,
+     384000000.0
+    ],
+    [
+     6.0,
+     384000000.0
+    ],
+    [
+     7.0,
+     384000000.0
+    ],
+    [
+     8.0,
+     384000000.0
+    ],
+    [
+     9.0,
+     384000000.0
+    ],
+    [
+     10.0,
+     384000000.0
+    ],
+    [
+     11.0,
+     384000000.0
+    ],
+    [
+     12.0,
+     384000000.0
+    ],
+    [
+     13.0,
+     384000000.0
+    ],
+    [
+     14.0,
+     384000000.0
+    ],
+    [
+     15.0,
+     384000000.0
+    ],
+    [
+     16.0,
+     384000000.0
+    ],
+    [
+     17.0,
+     384000000.0
+    ],
+    [
+     18.0,
+     384000000.0
+    ],
+    [
+     19.0,
+     384000000.0
+    ]
+   ],
+   "jvm_heap_used_bytes": [
+    [
+     0.0,
+     60000000.0
+    ],
+    [
+     1.0,
+     76000000.0
+    ],
+    [
+     2.0,
+     92000000.0
+    ],
+    [
+     3.0,
+     108000000.0
+    ],
+    [
+     4.0,
+     124000000.0
+    ],
+    [
+     5.0,
+     140000000.0
+    ],
+    [
+     6.0,
+     156000000.0
+    ],
+    [
+     7.0,
+     172000000.0
+    ],
+    [
+     8.0,
+     188000000.0
+    ],
+    [
+     9.0,
+     204000000.0
+    ],
+    [
+     10.0,
+     220000000.0
+    ],
+    [
+     11.0,
+     236000000.0
+    ],
+    [
+     12.0,
+     252000000.0
+    ],
+    [
+     13.0,
+     268000000.0
+    ],
+    [
+     14.0,
+     284000000.0
+    ],
+    [
+     15.0,
+     300000000.0
+    ],
+    [
+     16.0,
+     316000000.0
+    ],
+    [
+     17.0,
+     332000000.0
+    ],
+    [
+     18.0,
+     348000000.0
+    ],
+    [
+     19.0,
+     364000000.0
+    ]
+   ]
+  },
+  "service": "ledgerline",
+  "window_end": "2026-10-20T00:01:00.000000Z",
+  "window_start": "2026-10-20T00:00:00.000000Z"
+ },
+ "family": "memory_leak",
+ "group": "g2",
+ "knobs": {
+  "herring": "vault",
+  "workers": 12
+ },
+ "load": {
+  "200": 1200,
+  "500": 50
+ },
+ "scenario_id": "memory_leak-g2",
+ "truth": {
+  "cause": "memory_leak",
+  "suspect_change": null
+ }
+}
